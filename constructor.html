@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function student(firstname,lastname,roll,sex,dob){
+            this.firstname=firstname;
+            this.lastname=lastname;
+            this.roll=roll;
+            this.sex=sex;
+            this.dob=new Date(dob);
+            this.getBirthYear=function(){
+                return this.dob.getFullYear();
+            }
+            this.getFullName=function(){
+                return `${this.firstname} ${this.lastname}`;
+            }
+        }
+       
+        const student1=new student('John','Doe','2','M','4-3-2000');
+        const student2=new student('Melissa','Gorg','3','F','12-4-1999');
+       
+        if(student1.getBirthYear()>student2.getBirthYear()){
+            console.log(student2.getFullName());
+        }else{
+            console.log(student1.getFullName());
+        }
+
+
+        function minage(date){
+            var today = new Date();
+    var birthDate = new Date(date);
+    var age = today.getFullYear() - birthDate.getFullYear();
+    var m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) 
+    {
+        age--;
+    }
+    return age;
+        }
+       
+        const st1=new minage('4-3-2000');
+        const st2=new minage('12-4-1999');
+        if(minage()>=22){
+            console.log('not eligibale');
+           
+        }else{
+            console.log('eligibale');
+          
+        }
+       
+    </script>
+</body>
+</html>
